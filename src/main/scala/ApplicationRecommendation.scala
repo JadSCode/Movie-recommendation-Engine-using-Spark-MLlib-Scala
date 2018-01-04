@@ -106,7 +106,7 @@ object ApplicationRecommendation extends App {
   val df = result.filter(r => r.user == userId)
 
   val recommendationList = df.toDF().sort(col("rating").desc).join(movies, movies("movieId") === df("product"), "inner")
-  recommendationList.select("movieId", "title", "genres")show()
+  recommendationList.select("movieId", "title", "genres").show()
 
 
 
